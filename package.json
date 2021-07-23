@@ -7,7 +7,8 @@
     "dev": "webpack serve",
     "build": "webpack --mode=production",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write . --loglevel=silent"
   },
   "keywords": [],
   "author": "",
@@ -17,9 +18,12 @@
     "@swc/core": "^1.2.66",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "eslint": "^7.31.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "html-webpack-plugin": "^5.3.2",
+    "prettier": "^2.3.2",
     "swc-loader": "^0.1.14",
     "webpack": "^5.46.0",
     "webpack-cli": "^4.7.2",
