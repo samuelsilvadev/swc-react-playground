@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production",
+    "lint": "eslint .",
+    "lint:fix": "npm run lint -- --fix"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,9 @@
     "@swc/cli": "^0.1.46",
     "@swc/core": "^1.2.66",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "eslint": "^7.31.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-react": "^7.24.0",
     "html-webpack-plugin": "^5.3.2",
     "swc-loader": "^0.1.14",
     "webpack": "^5.46.0",
