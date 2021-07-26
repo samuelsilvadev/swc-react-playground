@@ -1,7 +1,12 @@
 import React from "react";
+import { styled } from "@stitches/react";
+
+const H1 = styled("h1", {
+  color: "red",
+});
 
 function App() {
-  return <h1>App 1</h1>;
+  return <H1>App 1</H1>;
 }
 
 export default App;
