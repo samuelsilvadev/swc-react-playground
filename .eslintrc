@@ -5,6 +5,7 @@
     "plugin:react/recommended",
     "plugin:jest/recommended",
     "plugin:testing-library/react",
+    "plugin:react-hooks/recommended",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
