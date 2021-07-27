@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const DotEnv = require("dotenv-webpack");
 
 const BUILD_FOLDER = path.resolve(__dirname, "build");
 
@@ -28,6 +29,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "public/index.html"),
+    }),
+    new DotEnv({
+      safe: true,
     }),
   ],
 };
