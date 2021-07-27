@@ -24,6 +24,10 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": "node",
+      "webpack": "webpack"
     }
   },
   "plugins": ["react", "jest", "testing-library"],
@@ -34,6 +38,6 @@
     {
       "files": ["**/__tests__/**/*.js"],
       "extends": ["plugin:testing-library/react"]
-    },
-  ],
+    }
+  ]
 }

@@ -16,6 +16,14 @@ module.exports = {
     contentBase: BUILD_FOLDER,
     port: 3000,
   },
+  resolve: {
+    alias: {
+      config: path.resolve(__dirname, "src/config/"),
+      components: path.resolve(__dirname, "src/components/"),
+      hooks: path.resolve(__dirname, "src/hooks/"),
+      services: path.resolve(__dirname, "src/services/"),
+    },
+  },
   module: {
     rules: [
       {
