@@ -1,9 +1,7 @@
 import React from "react";
 import { styled, global } from "@stitches/react";
 
-const H1 = styled("h1", {
-  color: "red",
-});
+import Recipes from "components/Recipes";
 
 const createGlobalStyles = global({
   "*": {
@@ -19,10 +17,31 @@ const createGlobalStyles = global({
   },
 });
 
+const Main = styled("main", {
+  display: "flex",
+  height: "100vh",
+});
+
+const RecipesStyled = styled(Recipes, {
+  flexBasis: "100%",
+  maxHeight: "50%",
+  overflow: "auto",
+
+  "@media (min-width: 768px)": {
+    flexBasis: "50%",
+    maxHeight: "100%",
+  },
+});
+
 function App() {
   createGlobalStyles();
 
-  return <H1>App 1</H1>;
+  return (
+    <Main>
+      <RecipesStyled />
+      <section />
+    </Main>
+  );
 }
 
 export default App;
