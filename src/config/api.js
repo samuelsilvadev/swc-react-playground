@@ -11,7 +11,7 @@ const END_POINTS = {
  * @returns {string}
  */
 function buildUrl(endpoint) {
-  return `${BASE_URL}${endpoint}?apiKey=${API_KEY}`;
+  return `${BASE_URL}${endpoint}`;
 }
 
 export { BASE_URL, END_POINTS, API_KEY, API_HOST, buildUrl };
