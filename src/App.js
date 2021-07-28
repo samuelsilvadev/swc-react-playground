@@ -1,7 +1,9 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
 import { styled, global } from "@stitches/react";
 
 import Recipes from "components/Recipes";
+import Recipe from "components/Recipe";
 
 const createGlobalStyles = global({
   "*": {
@@ -20,10 +22,15 @@ const createGlobalStyles = global({
 const Main = styled("main", {
   display: "flex",
   height: "100vh",
+  flexDirection: "column",
+
+  "@media (min-width: 768px)": {
+    flexDirection: "row",
+  },
 });
 
 const RecipesStyled = styled(Recipes, {
-  flexBasis: "100%",
+  flex: "0 0 100%",
   maxHeight: "50%",
   overflow: "auto",
 
@@ -33,14 +40,28 @@ const RecipesStyled = styled(Recipes, {
   },
 });
 
+const RecipeStyled = styled(Recipe, {
+  flex: "0 0 100%",
+
+  "@media (min-width: 768px)": {
+    flexBasis: "50%",
+  },
+});
+
 function App() {
   createGlobalStyles();
 
   return (
-    <Main>
-      <RecipesStyled />
-      <section />
-    </Main>
+    <BrowserRouter>
+      <Main>
+        <Route path="/">
+          <RecipesStyled />
+        </Route>
+        <Route path="/:id">
+          <RecipeStyled />
+        </Route>
+      </Main>
+    </BrowserRouter>
   );
 }
 

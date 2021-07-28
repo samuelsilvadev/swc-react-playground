@@ -1,6 +1,7 @@
 import React from "react";
-import { styled } from "@stitches/react";
 import PropTypes from "prop-types";
+import { styled } from "@stitches/react";
+import { Link } from "react-router-dom";
 
 import useRecipes from "hooks/api/useRecipes";
 
@@ -12,6 +13,11 @@ const Li = styled("li", {
   "&:not(:last-child)": {
     marginBottom: "2rem",
   },
+});
+
+const LinkStyled = styled(Link, {
+  color: "#000",
+  textDecoration: "none",
 });
 
 function Recipes(props) {
@@ -31,10 +37,12 @@ function Recipes(props) {
       {recipes.map(({ description, name, id }) => {
         return (
           <Li key={id}>
-            <article>
-              <h2>{name}</h2>
-              <p>{description}</p>
-            </article>
+            <LinkStyled to={`/${id}`}>
+              <article>
+                <h2>{name}</h2>
+                <p>{description}</p>
+              </article>
+            </LinkStyled>
           </Li>
         );
       })}

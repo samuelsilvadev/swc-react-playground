@@ -10,17 +10,15 @@ function useRecipes() {
     setLoading(true);
 
     (async () => {
-      const loadedRecipes = await fetchAllRecipes();
+      try {
+        const loadedRecipes = await fetchAllRecipes();
 
-      if ("error" in loadedRecipes) {
-        setError(loadedRecipes.error);
-        setLoading(false);
-
-        return;
-      }
-
-      if (Array.isArray(loadedRecipes.results)) {
-        setRecipes(loadedRecipes.results);
+        if (Array.isArray(loadedRecipes.results)) {
+          setRecipes(loadedRecipes.results);
+        }
+      } catch (error) {
+        setError(error);
+      } finally {
         setLoading(false);
       }
     })();

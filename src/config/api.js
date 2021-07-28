@@ -4,6 +4,7 @@ const API_HOST = process.env.API_HOST;
 
 const END_POINTS = {
   EVERYTHING: "/list",
+  DETAILS: "/detail",
 };
 
 /**
