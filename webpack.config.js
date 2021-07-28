@@ -13,8 +13,8 @@ module.exports = {
     filename: "index.js",
   },
   devServer: {
-    contentBase: BUILD_FOLDER,
     port: 3000,
+    historyApiFallback: true,
   },
   resolve: {
     alias: {
