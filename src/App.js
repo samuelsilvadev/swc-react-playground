@@ -21,30 +21,55 @@ const createGlobalStyles = global({
 
 const Main = styled("main", {
   display: "flex",
-  height: "100vh",
   flexDirection: "column",
+  padding: "2rem 5rem",
+  gap: "5rem",
 
   "@media (min-width: 768px)": {
+    alignItems: "flex-start",
+    padding: "2rem 3rem",
     flexDirection: "row",
+    gap: "3rem",
+  },
+
+  "@media (min-width: 1024px)": {
+    padding: "2rem 5rem",
+    gap: "5rem",
   },
 });
 
 const RecipesStyled = styled(Recipes, {
-  flex: "0 0 100%",
-  maxHeight: "50%",
+  flex: "0 1 auto",
   overflow: "auto",
+  height: "calc(50vh - 2rem - 2.5rem)",
+  scrollbarWidth: "none",
+
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
 
   "@media (min-width: 768px)": {
     flexBasis: "50%",
-    maxHeight: "100%",
+    height: "auto",
   },
 });
 
 const RecipeStyled = styled(Recipe, {
-  flex: "0 0 100%",
+  flex: "0 1 auto",
+  height: "calc(50vh - 2rem - 2.5rem)",
+  overflow: "auto",
+  scrollbarWidth: "none",
+
+  "&::-webkit-scrollbar": {
+    display: "none",
+  },
 
   "@media (min-width: 768px)": {
+    position: "sticky",
+    top: "2rem",
     flexBasis: "50%",
+    height: "calc(100vh - 4rem)",
+    overscrollBehavior: "contain",
   },
 });
 

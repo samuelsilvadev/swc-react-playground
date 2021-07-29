@@ -1,5 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { styled } from "@stitches/react";
+
+const Title = styled("h4", {
+  marginBottom: "1rem",
+});
+
+const Ol = styled("ol", {
+  paddingLeft: "1rem",
+});
 
 function Ingredient(props) {
   const { name, components = [] } = props;
@@ -10,14 +19,14 @@ function Ingredient(props) {
 
   return (
     <section>
-      {name && <h3>{name}</h3>}
-      <ol>
+      {name && <Title>{name}</Title>}
+      <Ol>
         {components.map(({ ingredient, id, measurements: [measurement] }) => (
           <li key={id}>
             {ingredient.name} - {measurement.quantity} {measurement.unit.name}
           </li>
         ))}
-      </ol>
+      </Ol>
     </section>
   );
 }

@@ -1,5 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { styled } from "@stitches/react";
+
+const Title = styled("h3", {
+  margin: "3rem 0",
+});
+
+const Ol = styled("ol", {
+  paddingLeft: "1rem",
+});
+
+const Li = styled("li", {
+  listStylePosition: "inside",
+  marginBottom: "2rem",
+});
 
 function Instructions(props) {
   const { steps = [] } = props;
@@ -10,12 +24,12 @@ function Instructions(props) {
 
   return (
     <>
-      <h3>How to prepare</h3>
-      <ol>
+      <Title>How to prepare</Title>
+      <Ol>
         {steps.map(({ display_text: displayText, id }) => (
-          <li key={id}>{displayText}</li>
+          <Li key={id}>{displayText}</Li>
         ))}
-      </ol>
+      </Ol>
     </>
   );
 }

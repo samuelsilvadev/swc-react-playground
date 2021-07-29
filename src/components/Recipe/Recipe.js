@@ -7,12 +7,39 @@ import Instructions from "components/Instructions";
 import Ingredients from "components/Ingredients";
 import useRecipe from "hooks/api/useRecipe";
 
+const Article = styled("article", {
+  border: "1px solid #000",
+  padding: "1rem",
+});
+
 const Img = styled("img", {
-  height: "50vh",
+  height: "40vh",
+  maxWidth: "100%",
+  objectFit: "cover",
+  marginBottom: "1rem",
+  width: "100%",
+});
+
+const Title = styled("h2", {
+  marginBottom: "1rem",
+});
+
+const Description = styled("p", {
+  marginBottom: "1rem",
+});
+
+const PreparationTime = styled("p", {
+  fontWeight: "bold",
+  marginBottom: "0.5rem",
+});
+
+const Produces = styled("p", {
+  fontStyle: "italic",
+  marginBottom: "1rem",
 });
 
 const HowToWrapper = styled("div", {
-  padding: "0 4rem",
+  // padding: "0 4rem",
 });
 
 function Recipe(props) {
@@ -22,11 +49,15 @@ function Recipe(props) {
   const { recipe, loading, error } = useRecipe(id);
 
   if (loading) {
-    return <p>Loading recipe details...</p>;
+    return <p className={className}>Loading recipe details...</p>;
   }
 
   if (error) {
-    return <p>Something went wrong while loading the recipe details</p>;
+    return (
+      <p className={className}>
+        Something went wrong while loading the recipe details
+      </p>
+    );
   }
 
   if (!recipe) {
@@ -45,17 +76,17 @@ function Recipe(props) {
   const { display_tier: displayTier } = totalTimeTier ?? {};
 
   return (
-    <article className={className}>
+    <Article className={className}>
       <Img src={thumbnailUrl} alt={name} />
-      <h2>{name}</h2>
-      <p>{description}</p>
-      <p>Preparation time: {displayTier}</p>
-      <p>{yields}</p>
+      <Title>{name}</Title>
+      <Description>{description}</Description>
+      <PreparationTime>Preparation time: {displayTier}</PreparationTime>
+      <Produces>{yields}</Produces>
       <HowToWrapper>
         <Ingredients sections={sections} />
         <Instructions steps={instructions} />
       </HowToWrapper>
-    </article>
+    </Article>
   );
 }
 

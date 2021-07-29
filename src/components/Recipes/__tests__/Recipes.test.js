@@ -4,6 +4,7 @@ import { render, screen } from "@testing-library/react";
 import useRecipes from "hooks/api/useRecipes";
 
 import Recipes from "../Recipes";
+import { MemoryRouter } from "react-router-dom";
 
 jest.mock("hooks/api/useRecipes");
 
@@ -19,7 +20,11 @@ describe("<Recipes />", () => {
       ],
     }));
 
-    render(<Recipes />);
+    render(
+      <MemoryRouter>
+        <Recipes />
+      </MemoryRouter>
+    );
 
     expect(screen.getByText("recipe-name")).toBeVisible();
     expect(screen.getByText("recipe-description")).toBeVisible();

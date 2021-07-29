@@ -1,19 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { styled } from "@stitches/react";
 
 import Ingredient from "./Ingredient";
+
+const Title = styled("h3", {
+  margin: "3rem 0",
+});
+
+const Ul = styled("ul", {
+  listStyle: "none",
+});
+
+const Li = styled("li", {
+  listStylePosition: "inside",
+  marginBottom: "2rem",
+});
 
 function Ingredients(props) {
   const { sections } = props;
 
   return (
-    <ol>
-      {sections.map(({ name, position, components }) => (
-        <li key={`${name}-${position}`}>
-          <Ingredient name={name} components={components} />
-        </li>
-      ))}
-    </ol>
+    <>
+      <Title>Ingredients</Title>
+      <Ul>
+        {sections.map(({ name, position, components }) => (
+          <Li key={`${name}-${position}`}>
+            <Ingredient name={name} components={components} />
+          </Li>
+        ))}
+      </Ul>
+    </>
   );
 }
 

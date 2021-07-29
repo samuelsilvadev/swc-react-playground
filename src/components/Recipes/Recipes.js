@@ -10,6 +10,9 @@ const Ul = styled("ul", {
 });
 
 const Li = styled("li", {
+  border: "1px solid #000",
+  padding: "1rem",
+
   "&:not(:last-child)": {
     marginBottom: "2rem",
   },
@@ -20,16 +23,22 @@ const LinkStyled = styled(Link, {
   textDecoration: "none",
 });
 
+const Description = styled("p", {
+  marginTop: "1rem",
+});
+
 function Recipes(props) {
   const { className } = props;
   const { recipes = [], loading, error } = useRecipes();
 
   if (loading) {
-    return <p>Loading list of recipes...</p>;
+    return <p className={className}>Loading list of recipes...</p>;
   }
 
   if (error) {
-    return <p>Something went wrong while loading recipes.</p>;
+    return (
+      <p className={className}>Something went wrong while loading recipes.</p>
+    );
   }
 
   return (
@@ -40,7 +49,7 @@ function Recipes(props) {
             <LinkStyled to={`/${id}`}>
               <article>
                 <h2>{name}</h2>
-                <p>{description}</p>
+                {description && <Description>{description}</Description>}
               </article>
             </LinkStyled>
           </Li>
