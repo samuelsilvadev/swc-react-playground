@@ -8,7 +8,7 @@ import Ingredients from "components/Ingredients";
 import useRecipe from "hooks/api/useRecipe";
 
 const Article = styled("article", {
-  border: "1px solid #000",
+  border: "0.1rem solid #000",
   padding: "1rem",
 });
 

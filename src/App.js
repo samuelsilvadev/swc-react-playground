@@ -67,7 +67,7 @@ const RecipeStyled = styled(Recipe, {
   "@media (min-width: 768px)": {
     position: "sticky",
     top: "2rem",
-    flexBasis: "50%",
+    flexBasis: "calc(50% - 0.2rem)",
     height: "calc(100vh - 4rem)",
     overscrollBehavior: "contain",
   },
