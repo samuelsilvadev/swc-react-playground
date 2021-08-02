@@ -38,10 +38,6 @@ const Produces = styled("p", {
   marginBottom: "1rem",
 });
 
-const HowToWrapper = styled("div", {
-  // padding: "0 4rem",
-});
-
 function Recipe(props) {
   const { className } = props;
   const { id } = useParams();
@@ -82,10 +78,8 @@ function Recipe(props) {
       <Description>{description}</Description>
       <PreparationTime>Preparation time: {displayTier}</PreparationTime>
       <Produces>{yields}</Produces>
-      <HowToWrapper>
-        <Ingredients sections={sections} />
-        <Instructions steps={instructions} />
-      </HowToWrapper>
+      <Ingredients sections={sections} />
+      <Instructions steps={instructions} />
     </Article>
   );
 }
