@@ -1,10 +1,10 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 
 import useRecipes from "hooks/api/useRecipes";
 
 import Recipes from "../Recipes";
-import { MemoryRouter } from "react-router-dom";
 
 jest.mock("hooks/api/useRecipes");
 
