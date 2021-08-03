@@ -13,6 +13,7 @@ module.exports = {
     filename: "index.js",
   },
   devServer: {
+    contentBase: path.join(__dirname, "public"),
     port: 3000,
     historyApiFallback: true,
   },
@@ -22,6 +23,7 @@ module.exports = {
       components: path.resolve(__dirname, "src/components/"),
       hooks: path.resolve(__dirname, "src/hooks/"),
       services: path.resolve(__dirname, "src/services/"),
+      mocks: path.resolve(__dirname, "src/mocks/"),
     },
   },
   module: {
