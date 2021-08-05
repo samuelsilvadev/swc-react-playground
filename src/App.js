@@ -1,9 +1,10 @@
-import React from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { Fragment } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { styled, global } from "@stitches/react";
 
 import Recipes from "components/Recipes";
 import Recipe from "components/Recipe";
+import useIsMobile from "hooks/useIsMobile";
 
 const createGlobalStyles = global({
   "*": {
@@ -23,40 +24,32 @@ const Main = styled("main", {
   display: "flex",
   flexDirection: "column",
   padding: "2rem 5rem",
-  gap: "5rem",
 
   "@media (min-width: 768px)": {
     alignItems: "flex-start",
     padding: "2rem 3rem",
     flexDirection: "row",
-    gap: "3rem",
   },
 
   "@media (min-width: 1024px)": {
     padding: "2rem 5rem",
-    gap: "5rem",
   },
 });
 
 const RecipesStyled = styled(Recipes, {
   flex: "0 1 auto",
-  overflow: "auto",
-  height: "calc(50vh - 2rem - 2.5rem)",
+  height: "auto",
   scrollbarWidth: "none",
 
-  "&::-webkit-scrollbar": {
-    display: "none",
-  },
-
   "@media (min-width: 768px)": {
-    flexBasis: "50%",
-    height: "auto",
+    flexBasis: "calc(50% - 1.5rem)",
+    marginRight: "1.5rem",
   },
 });
 
 const RecipeStyled = styled(Recipe, {
   flex: "0 1 auto",
-  height: "calc(50vh - 2rem - 2.5rem)",
+  height: "calc(100vh - 2rem - 2.5rem)",
   overflow: "auto",
   scrollbarWidth: "none",
 
@@ -67,24 +60,30 @@ const RecipeStyled = styled(Recipe, {
   "@media (min-width: 768px)": {
     position: "sticky",
     top: "2rem",
-    flexBasis: "calc(50% - 0.2rem)",
+    flexBasis: "calc(50% - 0.2rem - 1.5rem)",
     height: "calc(100vh - 4rem)",
     overscrollBehavior: "contain",
+    marginLeft: "1.5rem",
   },
 });
 
 function App() {
   createGlobalStyles();
 
+  const isMobile = useIsMobile();
+  const RoutesWrapper = isMobile ? Switch : Fragment;
+
   return (
     <BrowserRouter>
       <Main>
-        <Route path="/">
-          <RecipesStyled />
-        </Route>
-        <Route path="/:id">
-          <RecipeStyled />
-        </Route>
+        <RoutesWrapper>
+          <Route exact={isMobile} path="/">
+            <RecipesStyled />
+          </Route>
+          <Route exact={isMobile} path="/:id">
+            <RecipeStyled />
+          </Route>
+        </RoutesWrapper>
       </Main>
     </BrowserRouter>
   );

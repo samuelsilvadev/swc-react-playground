@@ -3,6 +3,7 @@ module.exports = {
   transform: {
     ".js$": ["@swc/jest"],
   },
+  setupFiles: ["./tests/jest-pre-setup.js"],
   setupFilesAfterEnv: ["./tests/jest-setup.js"],
   moduleNameMapper: {
     "^config/(.*)$": "<rootDir>/src/config/$1",
