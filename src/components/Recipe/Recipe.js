@@ -74,10 +74,14 @@ function Recipe(props) {
   return (
     <Article className={className}>
       <Img src={thumbnailUrl} alt={name} />
-      <Title>{name}</Title>
-      <Description>{description}</Description>
-      <PreparationTime>Preparation time: {displayTier}</PreparationTime>
-      <Produces>{yields}</Produces>
+      <Title data-cy="recipe-detail-title">{name}</Title>
+      <Description data-cy="recipe-detail-description">
+        {description}
+      </Description>
+      <PreparationTime data-cy="recipe-detail-preparation-time">
+        Preparation time: {displayTier}
+      </PreparationTime>
+      <Produces data-cy="recipe-detail-produces">{yields}</Produces>
       <Ingredients sections={sections} />
       <Instructions steps={instructions} />
     </Article>

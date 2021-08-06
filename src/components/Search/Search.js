@@ -35,14 +35,17 @@ function Search(props) {
   };
 
   return (
-    <Form onSubmit={handleOnSubmit}>
+    <Form data-cy="search-form" onSubmit={handleOnSubmit}>
       <Input
+        data-cy="search-input"
         type="search"
         aria-label="Search for a recipe"
         placeholder="Search for a recipe"
         ref={inputRef}
       />
-      <Button type="submit">Search</Button>
+      <Button data-cy="search-button" type="submit">
+        Search
+      </Button>
     </Form>
   );
 }

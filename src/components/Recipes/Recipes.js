@@ -35,12 +35,18 @@ function Recipes(props) {
   const [searchTerm, setSearchTerm] = useState();
 
   if (loading) {
-    return <p className={className}>Loading list of recipes...</p>;
+    return (
+      <p data-cy="recipes-loading" className={className}>
+        Loading list of recipes...
+      </p>
+    );
   }
 
   if (error) {
     return (
-      <p className={className}>Something went wrong while loading recipes.</p>
+      <p data-cy="recipes-error" className={className}>
+        Something went wrong while loading recipes.
+      </p>
     );
   }
 
@@ -54,14 +60,14 @@ function Recipes(props) {
     <div className={className}>
       <Search onSearch={setSearchTerm} />
       {searchTerm && filteredRecipes.length === 0 ? (
-        <p>No results found</p>
+        <p data-cy="recipes-empty-result">No results found</p>
       ) : (
         <Ul>
           {filteredRecipes.map(({ description, name, id }) => {
             return (
               <Li key={id}>
                 <LinkStyled to={`/${id}`}>
-                  <article>
+                  <article data-cy="recipe-list-item">
                     <h2>{name}</h2>
                     {description && <Description>{description}</Description>}
                   </article>
