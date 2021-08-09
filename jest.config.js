@@ -1,4 +1,5 @@
 module.exports = {
+  testMatch: ["<rootDir>/src/**/?(*.)+(test).js"],
   testEnvironment: "jsdom",
   transform: {
     ".js$": ["@swc/jest"],
