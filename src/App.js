@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import PropTypes from "prop-types";
+import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
 import { styled, global } from "@stitches/react";
 
+import Button from "components/Button";
 import Recipes from "components/Recipes";
 import Recipe from "components/Recipe";
 import useIsMobile from "hooks/useIsMobile";
@@ -23,11 +25,10 @@ const createGlobalStyles = global({
 const Main = styled("main", {
   display: "flex",
   flexDirection: "column",
-  padding: "2rem 5rem",
+  padding: "2rem 3rem",
 
   "@media (min-width: 768px)": {
     alignItems: "flex-start",
-    padding: "2rem 3rem",
     flexDirection: "row",
   },
 
@@ -48,10 +49,11 @@ const RecipesStyled = styled(Recipes, {
 });
 
 const RecipeStyled = styled(Recipe, {
-  flex: "0 1 auto",
-  height: "calc(100vh - 2rem - 2.5rem)",
+  // TODO: create variables to each value
+  height: "calc(100vh - 2rem - 2.5rem - 4rem - 1rem)",
   overflow: "auto",
   scrollbarWidth: "none",
+  width: "100%",
 
   "&::-webkit-scrollbar": {
     display: "none",
@@ -60,17 +62,61 @@ const RecipeStyled = styled(Recipe, {
   "@media (min-width: 768px)": {
     position: "sticky",
     top: "2rem",
-    flexBasis: "calc(50% - 0.2rem - 1.5rem)",
     height: "calc(100vh - 4rem)",
     overscrollBehavior: "contain",
+  },
+});
+
+const RecipeWrapper = styled("div", {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+  flex: "0 1 auto",
+
+  "@media (min-width: 768px)": {
+    flexBasis: "calc(50% - 0.2rem - 1.5rem)",
     marginLeft: "1.5rem",
   },
 });
+
+const BackButton = styled(Button, {
+  marginBottom: "1rem",
+});
+
+function RecipesWrapper(props) {
+  const { hasBackButton } = props;
+
+  const history = useHistory();
+
+  const handleOnBackClick = () => {
+    history.push("/");
+  };
+
+  return (
+    <RecipeWrapper>
+      {hasBackButton && (
+        <BackButton type="button" onClick={handleOnBackClick}>
+          Back
+        </BackButton>
+      )}
+      <RecipeStyled />
+    </RecipeWrapper>
+  );
+}
+
+RecipesWrapper.propTypes = {
+  hasBackButton: PropTypes.bool,
+};
 
 function App() {
   createGlobalStyles();
 
   const isMobile = useIsMobile();
+
+  if (typeof isMobile === "undefined") {
+    return null;
+  }
+
   const RoutesWrapper = isMobile ? Switch : Fragment;
 
   return (
@@ -81,7 +127,7 @@ function App() {
             <RecipesStyled />
           </Route>
           <Route exact={isMobile} path="/:id">
-            <RecipeStyled />
+            <RecipesWrapper hasBackButton={isMobile} />
           </Route>
         </RoutesWrapper>
       </Main>

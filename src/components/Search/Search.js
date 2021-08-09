@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 import { styled } from "@stitches/react";
 
+import Button from "components/Button";
+
 const Form = styled("form", {
   display: "flex",
   height: "4rem",
@@ -13,13 +15,6 @@ const Input = styled("input", {
   border: "0.1rem solid #000",
   flexGrow: 1,
   marginRight: "1rem",
-  padding: "0 2rem",
-});
-
-const Button = styled("button", {
-  background: "transparent",
-  border: "0.1rem solid #000",
-  cursor: "pointer",
   padding: "0 2rem",
 });
 
