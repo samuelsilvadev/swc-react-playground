@@ -95,7 +95,11 @@ function RecipesWrapper(props) {
   return (
     <RecipeWrapper>
       {hasBackButton && (
-        <BackButton type="button" onClick={handleOnBackClick}>
+        <BackButton
+          data-cy="back-button"
+          type="button"
+          onClick={handleOnBackClick}
+        >
           Back
         </BackButton>
       )}

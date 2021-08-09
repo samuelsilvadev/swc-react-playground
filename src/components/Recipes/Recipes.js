@@ -66,7 +66,7 @@ function Recipes(props) {
           {filteredRecipes.map(({ description, name, id }) => {
             return (
               <Li key={id}>
-                <LinkStyled to={`/${id}`}>
+                <LinkStyled data-cy="recipe-link" to={`/${id}`}>
                   <article data-cy="recipe-list-item">
                     <h2>{name}</h2>
                     {description && <Description>{description}</Description>}
