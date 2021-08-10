@@ -72,7 +72,7 @@ function Recipe(props) {
   const { display_tier: displayTier } = totalTimeTier ?? {};
 
   return (
-    <Article className={className}>
+    <Article tabIndex={0} className={className}>
       <Img src={thumbnailUrl} alt={name} />
       <Title data-cy="recipe-detail-title">{name}</Title>
       <Description data-cy="recipe-detail-description">
