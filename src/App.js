@@ -23,9 +23,12 @@ const createGlobalStyles = global({
 });
 
 const Main = styled("main", {
+  $$gap: "1.5rem",
+  $$containerBlockPadding: "2rem",
+
   display: "flex",
   flexDirection: "column",
-  padding: "2rem 3rem",
+  padding: "$$containerBlockPadding 3rem",
 
   "@media (min-width: 768px)": {
     alignItems: "flex-start",
@@ -33,7 +36,7 @@ const Main = styled("main", {
   },
 
   "@media (min-width: 1024px)": {
-    padding: "2rem 5rem",
+    padding: "$$containerBlockPadding 5rem",
   },
 });
 
@@ -43,14 +46,29 @@ const RecipesStyled = styled(Recipes, {
   scrollbarWidth: "none",
 
   "@media (min-width: 768px)": {
-    flexBasis: "calc(50% - 1.5rem)",
-    marginRight: "1.5rem",
+    flexBasis: "calc(50% - $$gap)",
+    marginRight: "$$gap",
+  },
+});
+
+const RecipeWrapper = styled("div", {
+  $$backButtonComputedHeight: "3.7rem",
+  $$backButtonMarginBottom: "1rem",
+
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "flex-end",
+  flex: "0 1 auto",
+
+  "@media (min-width: 768px)": {
+    flexBasis: "calc(50% - 0.2rem - $$gap)",
+    marginLeft: "$$gap",
   },
 });
 
 const RecipeStyled = styled(Recipe, {
-  // TODO: create variables to each value
-  height: "calc(100vh - 2rem - 2.5rem - 4rem - 1rem)",
+  height:
+    "calc(100vh - ($$containerBlockPadding * 2) - $$backButtonComputedHeight - $$backButtonMarginBottom)",
   overflow: "auto",
   scrollbarWidth: "none",
   width: "100%",
@@ -62,25 +80,13 @@ const RecipeStyled = styled(Recipe, {
   "@media (min-width: 768px)": {
     position: "sticky",
     top: "2rem",
-    height: "calc(100vh - 4rem)",
+    height: "calc(100vh - ($$containerBlockPadding * 2))",
     overscrollBehavior: "contain",
   },
 });
 
-const RecipeWrapper = styled("div", {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "flex-end",
-  flex: "0 1 auto",
-
-  "@media (min-width: 768px)": {
-    flexBasis: "calc(50% - 0.2rem - 1.5rem)",
-    marginLeft: "1.5rem",
-  },
-});
-
 const BackButton = styled(Button, {
-  marginBottom: "1rem",
+  marginBottom: "$$backButtonMarginBottom",
 });
 
 function RecipesWrapper(props) {
