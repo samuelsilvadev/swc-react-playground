@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@stitches/react";
 import { useParams } from "react-router-dom";
 
 import Instructions from "components/Instructions";
 import Ingredients from "components/Ingredients";
 import useRecipe from "hooks/api/useRecipe";
+import { styled } from "config/css";
 
 const Article = styled("article", {
   border: "0.1rem solid #000",

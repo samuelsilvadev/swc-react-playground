@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import PropTypes from "prop-types";
-import { styled } from "@stitches/react";
 
 import Button from "components/Button";
+import { styled } from "config/css";
 
 const Form = styled("form", {
   display: "flex",

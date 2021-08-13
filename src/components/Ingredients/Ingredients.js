@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { styled } from "@stitches/react";
+
+import { styled } from "config/css";
 
 import Ingredient from "./Ingredient";
 

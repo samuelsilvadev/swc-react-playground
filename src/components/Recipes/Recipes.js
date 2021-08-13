@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { styled } from "@stitches/react";
 import { Link } from "react-router-dom";
 
 import Search from "components/Search";
 import useRecipes from "hooks/api/useRecipes";
+import { styled } from "config/css";
 
 const Ul = styled("ul", {
   listStyle: "none",

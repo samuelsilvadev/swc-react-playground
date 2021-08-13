@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { BrowserRouter, Route, Switch, useHistory } from "react-router-dom";
-import { styled, global } from "@stitches/react";
 
 import Button from "components/Button";
 import Recipes from "components/Recipes";
 import Recipe from "components/Recipe";
 import useIsMobile from "hooks/useIsMobile";
+import { styled, global } from "config/css";
 
 const createGlobalStyles = global({
   "*": {
@@ -30,12 +30,12 @@ const Main = styled("main", {
   flexDirection: "column",
   padding: "$$containerBlockPadding 3rem",
 
-  "@media (min-width: 768px)": {
+  "@sm": {
     alignItems: "flex-start",
     flexDirection: "row",
   },
 
-  "@media (min-width: 1024px)": {
+  "@md": {
     padding: "$$containerBlockPadding 5rem",
   },
 });
@@ -45,7 +45,7 @@ const RecipesStyled = styled(Recipes, {
   height: "auto",
   scrollbarWidth: "none",
 
-  "@media (min-width: 768px)": {
+  "@sm": {
     flexBasis: "calc(50% - $$gap)",
     marginRight: "$$gap",
   },
@@ -60,7 +60,7 @@ const RecipeWrapper = styled("div", {
   alignItems: "flex-end",
   flex: "0 1 auto",
 
-  "@media (min-width: 768px)": {
+  "@sm": {
     flexBasis: "calc(50% - 0.2rem - $$gap)",
     marginLeft: "$$gap",
   },
@@ -77,7 +77,7 @@ const RecipeStyled = styled(Recipe, {
     display: "none",
   },
 
-  "@media (min-width: 768px)": {
+  "@sm": {
     position: "sticky",
     top: "2rem",
     height: "calc(100vh - ($$containerBlockPadding * 2))",

@@ -1,6 +1,7 @@
 import React from "react";
-import { styled } from "@stitches/react";
 import PropTypes from "prop-types";
+
+import { styled } from "config/css";
 
 const ButtonStyled = styled("button", {
   textTransform: "uppercase",
