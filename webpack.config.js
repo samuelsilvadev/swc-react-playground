@@ -1,9 +1,12 @@
+require("dotenv").config();
+
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const DotEnv = require("dotenv-webpack");
 
 const BUILD_FOLDER = path.resolve(__dirname, "build");
+const isUsingMockServer = process.env.USE_MSW_SERVER === "true";
 
 module.exports = {
   mode: "development",
@@ -41,7 +44,7 @@ module.exports = {
       template: path.join(__dirname, "public/index.html"),
     }),
     new DotEnv({
-      safe: true,
+      safe: !isUsingMockServer,
     }),
   ],
 };

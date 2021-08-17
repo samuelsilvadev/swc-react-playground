@@ -1,4 +1,4 @@
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.BASE_URL || window.location.origin;
 const API_KEY = process.env.API_KEY;
 const API_HOST = process.env.API_HOST;
 
