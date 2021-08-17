@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import { isMockServer, ise2e } from "utils/runtime";
+
 import App from "./App";
 
-if (process.env.USE_MSW_SERVER === "true") {
+if (isMockServer || ise2e) {
   const { worker } = require("mocks/browser");
 
   worker.start();

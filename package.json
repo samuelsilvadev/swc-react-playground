@@ -12,8 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch --no-coverage",
     "cy:run-server": "start-server-and-test dev http://localhost:3000",
-    "cy:open": "npm run cy:run-server 'cypress open'",
-    "cy:run": "npm run cy:run-server 'cypress run'"
+    "cy:open": "CY=true npm run cy:run-server 'cypress open'",
+    "cy:run": "CY=true npm run cy:run-server 'cypress run'"
   },
   "keywords": [],
   "author": "",
