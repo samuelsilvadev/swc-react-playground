@@ -1,12 +1,13 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "config/*": ["./src/config/*"],
-            "components/*": ["./src/components/*"],
-            "hooks/*": ["./src/hooks/*"],
-            "services/*": ["./src/services/*"],
-            "mocks/*": ["./src/mocks/*"],
-        }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "config/*": ["./src/config/*"],
+      "components/*": ["./src/components/*"],
+      "hooks/*": ["./src/hooks/*"],
+      "services/*": ["./src/services/*"],
+      "mocks/*": ["./src/mocks/*"],
+      "utils/*": ["./src/utils/*"]
     }
+  }
 }

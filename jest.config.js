@@ -12,5 +12,6 @@ module.exports = {
     "^hooks/(.*)$": "<rootDir>/src/hooks/$1",
     "^services/(.*)$": "<rootDir>/src/services/$1",
     "^mocks/(.*)$": "<rootDir>/src/mocks/$1",
+    "^utils/(.*)$": "<rootDir>/src/utils/$1",
   },
 };
